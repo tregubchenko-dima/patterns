@@ -4,15 +4,17 @@ public class SingletonV1 {
 
     private volatile static SingletonV1 singleton;
 
-    private SingletonV1(){
+    private String value;
 
+    private SingletonV1(String value){
+        this.value = value;
     }
 
-    public static SingletonV1 getInstance(){
+    public static SingletonV1 getInstance(String value){
         if(singleton == null){
             synchronized (SingletonV1.class){
                 if(singleton == null){
-                    singleton = new SingletonV1();
+                    singleton = new SingletonV1(value);
                 }
             }
         }
@@ -20,6 +22,10 @@ public class SingletonV1 {
     }
 
     public void showMessage(){
-        System.out.println("Message");
+        System.out.println("Message: " + value);
+    }
+
+    public String getValue(){
+        return value;
     }
 }
