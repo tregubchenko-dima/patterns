@@ -1,4 +1,4 @@
-package com.patterns.builder;
+package com.patterns.builder.v1;
 
 public class Person {
 
